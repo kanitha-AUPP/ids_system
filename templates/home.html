@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hub - Digital Portfolio Demo</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #cce5ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1500x500/2c3e50/ffffff?text=Modern+Design+Background') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hero p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        .cta-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* Content Sections */
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* Cards Layout */
+        .cards-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+            width: calc(33% - 20px); /* Three cards per row */
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .card h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Digital Hub ⚙️</h1>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Resources</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Welcome to My Creative Space</h2>
+        <p>Showcasing modern web development, insightful resources, and current projects.</p>
+        <a href="#" class="cta-button">View Latest Work</a>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Featured Resources & Tools</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>📚 Knowledge Base</h3>
+                <p>Curated articles and documentation on software architecture and design patterns.</p>
+            </div>
+            <div class="card">
+                <h3>💡 Project Demos</h3>
+                <p>Interactive samples of recent web applications built with Flask/Django and React.</p>
+            </div>
+            <div class="card">
+                <h3>🔗 Useful Links</h3>
+                <p>A collection of external tools, tutorials, and communities I recommend.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">About This Demo</h2>
+        <p style="text-align: center; line-height: 1.6;">
+            This is a simple, **responsive home page design** using only **HTML and inline CSS**. The structure includes a clear header with navigation, an engaging hero section (with a placeholder image), and a main content area using a modern card layout. This is designed to be easily integrated into your Flask application's `home.html` template.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Digital Hub Demo | Built with HTML & CSS</p>
+    </footer>
+
+</body>
+</html>
