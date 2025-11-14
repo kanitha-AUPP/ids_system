@@ -69,10 +69,10 @@ def login():
         creds = load_credentials()  # read credentials on each attempt
 
         # If admin exists in creds and matches
-        if username == 'admin' and creds.get('admin') and creds.get('admin') == password:
-            session['user'] = username
-            log_activity(username, ip, 'ADMIN LOGIN', port)
-            return redirect(url_for('admin_dashboard'))
+        # if username == 'admin' and creds.get('admin') and creds.get('admin') == password:
+        #     session['user'] = username
+        #     log_activity(username, ip, 'ADMIN LOGIN', port)
+        #     return redirect(url_for('admin_dashboard'))
 
         # Normal user login
         if username in creds and creds[username] == password:
