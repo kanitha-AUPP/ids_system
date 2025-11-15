@@ -127,4 +127,5 @@ if __name__ == '__main__':
         if not os.path.exists(fn):
             with open(fn, 'w', newline='', encoding='utf-8') as f:
                 pass
+    port = int(os.environ.get("PORT", 8000))
     app.run(host='0.0.0.0', port=port, debug=True)
