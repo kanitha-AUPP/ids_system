@@ -1,0 +1,5 @@
+timestamp,username,ip,status,port,attempts
+2025-11-16 16:04:27,kanny,127.0.0.1,FAILED,62587,1
+2025-11-16 16:04:36,alice,127.0.0.1,FAILED,62589,1
+2025-11-16 16:04:48,alice,127.0.0.1,FAILED,62590,2
+2025-11-16 16:13:56,alice,127.0.0.1,SUCCESS,62668,0
