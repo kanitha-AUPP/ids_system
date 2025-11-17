@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Activities - IDS System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }
+        .nav { background: #34495e; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .nav a { color: white; text-decoration: none; margin: 0 15px; padding: 8px 15px; border-radius: 3px; }
+        .nav a:hover { background: #1abc9c; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        .success { background-color: #d4edda; }
+        .failed { background-color: #f8d7da; }
+        .suspicious { background-color: #fff3cd; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👥 All User Activities</h1>
+    </div>
+    
+    <div class="nav">
+        <a href="{{ url_for('admin_dashboard') }}">📊 Dashboard</a>
+        <a href="{{ url_for('admin_activities') }}">👥 All Activities</a>
+        <a href="{{ url_for('admin_alerts') }}">🚨 Threat Alerts</a>
+        <a href="{{ url_for('admin_stats') }}">📈 Statistics</a>
+        <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+            <input type="submit" value="🚪 Logout" style="background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 3px; cursor: pointer;">
+        </form>
+    </div>
+
+    <h2>Recent Login Activities (Last 100)</h2>
+    
+    {% if activities %}
+        <table>
+            <tr>
+                <th>Timestamp</th>
+                <th>Username</th>
+                <th>IP Address</th>
+                <th>Status</th>
+                <th>Port</th>
+                <th>Attempts</th>
+            </tr>
+            {% for activity in activities %}
+            <tr class="{{ 'success' if activity.status == 'SUCCESS' else 'suspicious' if activity.status == 'SUSPICIOUS' else 'failed' }}">
+                <td>{{ activity.timestamp }}</td>
+                <td>{{ activity.username }}</td>
+                <td>{{ activity.ip }}</td>
+                <td><strong>{{ activity.status }}</strong></td>
+                <td>{{ activity.port }}</td>
+                <td>{{ activity.attempts }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No activities recorded yet.</p>
+    {% endif %}
+</body>
+</html>

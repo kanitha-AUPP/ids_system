@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Locked</title>
+    <style>
+        /* Basic CSS for presentation and responsiveness */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 60px;
+            color: #dc3545; /* Red color for error/lock */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #dc3545;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+
+        .action-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .action-list li {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-left: 5px solid #007bff; /* Blue accent */
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">&#128274;</div>
+
+        <h1>Account Locked</h1>
+        
+        <p>
+            For your security, your account has been temporarily locked due to multiple failed login attempts or unusual activity.
+        </p>
+        
+        <p>
+            Please follow the option below to regain access to your account.
+        </p>
+
+        <ul class="action-list">
+            <li>
+                <strong>Option 1: Reset Your Password</strong><br>
+                Please contact your administrator to reset your password. This will unlock your account.
+            </li>
+        </ul>
+        
+        <p style="margin-top: 30px; font-size: 0.9em;">
+            Thank you for your understanding.
+        </p>
+    </div>
+
+</body>
+</html>

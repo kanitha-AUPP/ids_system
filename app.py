@@ -83,7 +83,7 @@ def login():
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "").strip()
 
-        ip = request.remote_addr or "Unknown"
+        ip = request.remote_addr or "Unknown" #function to grep ip
         port = request.environ.get("REMOTE_PORT", "Unknown")
 
         users = load_credentials()

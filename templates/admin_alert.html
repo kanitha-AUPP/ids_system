@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threat Alerts - IDS System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background: #2c3e50; color: white; padding: 20px; border-radius: 5px; }
+        .nav { background: #34495e; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .nav a { color: white; text-decoration: none; margin: 0 15px; padding: 8px 15px; border-radius: 3px; }
+        .nav a:hover { background: #1abc9c; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        .high { background-color: #ffcccc; }
+        .medium { background-color: #fff4cc; }
+        .low { background-color: #f0f0f0; }
+        .alert-badge { padding: 4px 8px; border-radius: 3px; color: white; font-size: 0.8em; }
+        .high-badge { background: #e74c3c; }
+        .medium-badge { background: #f39c12; }
+        .low-badge { background: #7f8c8d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚨 Threat Alerts Dashboard</h1>
+    </div>
+    
+    <div class="nav">
+        <a href="{{ url_for('admin_dashboard') }}">📊 Dashboard</a>
+        <a href="{{ url_for('admin_activities') }}">👥 All Activities</a>
+        <a href="{{ url_for('admin_alerts') }}">🚨 Threat Alerts</a>
+        <a href="{{ url_for('admin_stats') }}">📈 Statistics</a>
+        <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+            <input type="submit" value="🚪 Logout" style="background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 3px; cursor: pointer;">
+        </form>
+    </div>
+
+    <h2>Suspicious Activities Log</h2>
+    
+    {% if alerts %}
+        <table>
+            <tr>
+                <th>Timestamp</th>
+                <th>Username</th>
+                <th>IP Address</th>
+                <th>Status</th>
+                <th>Port</th>
+                <th>Attempts</th>
+                <th>Threat Level</th>
+            </tr>
+            {% for alert in alerts %}
+            <tr class="{{ 'high' if alert.threat_level == 'HIGH' else 'medium' if alert.threat_level == 'MEDIUM' else 'low' }}">
+                <td>{{ alert.timestamp }}</td>
+                <td><strong>{{ alert.username }}</strong></td>
+                <td>{{ alert.ip }}</td>
+                <td>{{ alert.status }}</td>
+                <td>{{ alert.port }}</td>
+                <td>{{ alert.attempts }}</td>
+                <td>
+                    <span class="alert-badge {{ alert.threat_level.lower() }}-badge">
+                        {{ alert.threat_level }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No threat alerts detected. ✅</p>
+    {% endif %}
+</body>
+</html>
